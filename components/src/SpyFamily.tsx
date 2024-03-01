@@ -1,6 +1,4 @@
-import {Anya} from './Anya';
-import {Loid} from './Loid';
-import {Yor} from './Yor';
+import {Card} from './Card';
 
 export const SpyFamily = () => {
   return (
@@ -15,9 +13,9 @@ export const SpyFamily = () => {
     <div className='section'>
       <div className='container'>
         <div className='columns'>
-          <div className='column is-3'><Anya/></div>
-          <div className='column is-3'><Loid/></div>
-          <div className='column is-3'><Yor/> </div>
+          <div className='column is-3'><Card image='/P1.png' name='Anya' description='ttt123'/></div>
+          <div className='column is-3'><Card image='/P2.png' name='Loid' description='ttt456'/></div>
+          <div className='column is-3'><Card image='/P3.png' name='Yor' description='ttt789'/> </div>
         </div>
       </div>
     </div>
