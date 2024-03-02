@@ -1,4 +1,6 @@
-import {Card} from './Card';
+import {Card,Props} from './Card';
+
+type Role = Props; //沿用存在的Modle給Role使用
 
 export const SpyFamily = () => {
   return (
