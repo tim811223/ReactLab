@@ -1,7 +1,7 @@
 /* 這邊產生共用Card 的component */
 
 import {FC} from 'react';
-import './Card.css';
+import './Card.scss';
 
 export interface Props{
   image:string;

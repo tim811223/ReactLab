@@ -15,17 +15,17 @@
 
 .card{
   /* & 表示parent */
-  & .card-image{
-    & img{
+   .card-image{
+    img{
       border: 1px solid red;
     }
   }
   
-  & .card-content{
-    & h3{
+   .card-content{
+    h3{
       color:blue;
     }
-    & p{
+    p{
       font-weight:bold;
     }
   }
