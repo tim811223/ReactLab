@@ -21,7 +21,7 @@
 // };
 ////////////////////////////////////////////////////////////
 import { SpyFamily } from './SpyFamily';
-import { roles } from './roles';
+import roles from './roles.json';
 
 export const App = () => {
   return (
