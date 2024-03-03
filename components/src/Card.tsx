@@ -2,7 +2,7 @@
 
 import {FC} from 'react';
 // import './Card.scss';
-import './BorderedImage.css';
+import styles from './BorderedImage.module.css';
 
 export interface Props{
   image:string;
@@ -14,7 +14,7 @@ export const Card :FC<Props> = ({image,name,description}) => {
   return(
     <div className='card'>
       <div className='card-image'>
-        <img src={image} className='bordered-image'></img>
+        <img src={image} className={styles['bordered-image']}></img>
       </div>
       <div className='card-content'>
         <h3 className='title is-3'>{name}</h3>
