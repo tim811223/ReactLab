@@ -1,7 +1,7 @@
 /* 這邊產生共用Card 的component */
 
 import {FC} from 'react';
-import './Card.css';
+import './Card.scss';
 
 export interface Props{
   image:string;
@@ -11,7 +11,7 @@ export interface Props{
 
 export const Card :FC<Props> = ({image,name,description}) => {
   return(
-    <div className='card'>
+    <div className='my-card'>
       <div className='card-image'>
         <img src={image}></img>
       </div>

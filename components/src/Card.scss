@@ -1,0 +1,41 @@
+
+/*
+.card .card-image img{
+  border:1px solid red;
+}
+
+.card .card-content h3{
+  color:blue;
+}
+
+.card .card-content p{
+  font-weight:bold;
+}
+*/
+
+@import 'bulma/bulma';//對應路徑 => node_modules/bulma/bulma.sass
+
+//sass特有特性可以自訂變數
+$barbie-pink: #E0218A;
+
+.my-card{
+  @extend .card; //自定義class my-class 內包含class card所有參數
+
+  /* & 表示parent */
+   .card-image{
+    img{
+      border: 1px solid red;
+    }
+  }
+  
+   .card-content{
+    // background-color: $barbie-pink;
+    background-color: $primary; //使用bulma變數
+    h3{
+      color:blue;
+    }
+    p{
+      font-weight:bold;
+    }
+  }
+}
