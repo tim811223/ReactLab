@@ -12,7 +12,7 @@ export const Card :FC<Props> = ({image,name,description}) => {
   return(
     <div className='card'>
       <div className='card-image'>
-        <img src={image}></img>
+        <img src={image}  style={{border:'1px solid red'}}></img>
       </div>
       <div className='card-content'>
         <h3 className='title is-3'>{name}</h3>
