@@ -20,18 +20,11 @@
       border: 1px solid red;
     }
   }
-}
-
-.card{
+  
   & .card-content{
     & h3{
       color:blue;
     }
-  }
-}
-
-.card{
-  & .card-content{
     & p{
       font-weight:bold;
     }
