@@ -19,8 +19,6 @@
 $barbie-pink: #E0218A;
 
 .card{
-  @extend .card; //自定義class my-class 內包含class card所有參數
-
   /* & 表示parent */
    .card-image{
     img{
