@@ -1,6 +1,13 @@
-import {Card} from './Card';
+import { FC } from 'react';
+import {Card,Props as CardProps} from './Card';
 
-export const SpyFamily = () => {
+export type Role = CardProps; //沿用存在的Modle給Role使用
+
+interface Props{
+  roles:Role[];
+}
+
+export const SpyFamily :FC<Props> = ({roles}) => {
   return (
     /* 6-66 */
     //<Anya/>
@@ -13,9 +20,7 @@ export const SpyFamily = () => {
     <div className='section'>
       <div className='container'>
         <div className='columns'>
-          <div className='column is-3'><Card image='/P1.png' name='Anya' description='ttt123'/></div>
-          <div className='column is-3'><Card image='/P2.png' name='Loid' description='ttt456'/></div>
-          <div className='column is-3'><Card image='/P3.png' name='Yor' description='ttt789'/> </div>
+          {roles.map(r=><div className='column is-3'><Card {...r}/></div>)}
         </div>
       </div>
     </div>

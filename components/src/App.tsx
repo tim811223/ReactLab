@@ -21,11 +21,12 @@
 // };
 ////////////////////////////////////////////////////////////
 import { SpyFamily } from './SpyFamily';
+import roles from './roles.json';
 
 export const App = () => {
   return (
     <>
-    <SpyFamily/>
+    <SpyFamily roles={roles}/>
     </>
   )
 };
