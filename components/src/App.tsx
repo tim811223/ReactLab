@@ -20,6 +20,10 @@
 //   )
 // };
 ////////////////////////////////////////////////////////////
+
+/* 加入css framework */
+import 'bulma/css/bulma.min.css';
+
 import { SpyFamily } from './SpyFamily';
 import roles from './roles.json';
 
