@@ -20,7 +20,7 @@ export const SpyFamily :FC<Props> = ({roles}) => {
     <div className='section'>
       <div className='container'>
         <div className='columns'>
-          {roles.map(r=><div className='column is-3'><Card image={r.image} name={r.name} description={r.description}/></div>)}
+          {roles.map(r=><div className='column is-3'><Card {...r}/></div>)}
         </div>
       </div>
     </div>
