@@ -1,8 +1,13 @@
+import 'bulma/css/bulma.min.css'
 import { ThumpsUp } from './ThumpsUp'
 
 export const App =()=>{
 
   return(
-    <ThumpsUp/>
+    <div className='section'>
+      <div className='container'>
+        <ThumpsUp/>
+      </div>
+    </div>
   )
 };

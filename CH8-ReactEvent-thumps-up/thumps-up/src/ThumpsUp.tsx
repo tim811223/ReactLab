@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const ThumpsUp = ()=>{
   let likes = 0;
   return (
-    <button className="button">
+    <button className="button is-info">
     <span className="icon">
       <FontAwesomeIcon icon={faThumbsUp} />
     </span>
