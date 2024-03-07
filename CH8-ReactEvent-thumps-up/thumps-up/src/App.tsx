@@ -1,12 +1,8 @@
-import { useState } from 'react'
+import { ThumpsUp } from './ThumpsUp'
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App =()=>{
 
-  return (
-    <>
-    </>
+  return(
+    <ThumpsUp/>
   )
-}
-
-export default App
+};
