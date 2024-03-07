@@ -1,12 +1,14 @@
+import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const ThumpsUp = ()=>{
   let likes = 0;
   return (
     <button className="button">
     <span className="icon">
-      <i className="fab fa-github"></i>
+      <FontAwesomeIcon icon={faThumbsUp} />
     </span>
-    <span>GitHub</span>
+    <span>{likes}</span>
   </button>
   );
 }
