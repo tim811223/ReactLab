@@ -22,9 +22,13 @@ export class ThumpsUp2 extends Component<Props,State>{
     };
   }
 
+  handleLikes = () => {
+    this.setState(prevState => ({likes:prevState.likes+1}));
+  }
+
   render() {
    return(
-    <button className="button is-info" >
+    <button className="button is-info" onClick={this.handleLikes}>
       <span className="icon">
         <FontAwesomeIcon icon={faThumbsUp} />
       </span>
