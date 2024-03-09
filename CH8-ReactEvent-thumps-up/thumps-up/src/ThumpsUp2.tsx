@@ -10,12 +10,16 @@ interface Props{
 }
 
 interface State{
-  
+  likes:number;
 }
 
 export class ThumpsUp2 extends Component<Props,State>{
   constructor(props:Props){
-    super(props)
+    super(props);
+
+    this.state={
+      likes:0
+    };
   }
 
   render() {
@@ -24,7 +28,7 @@ export class ThumpsUp2 extends Component<Props,State>{
       <span className="icon">
         <FontAwesomeIcon icon={faThumbsUp} />
       </span>
-      <span>{0}</span>
+      <span>{this.state.likes}</span>
     </button>
    ); 
   }
