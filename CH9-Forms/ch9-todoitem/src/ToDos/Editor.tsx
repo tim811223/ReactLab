@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { Priority } from "./ToDoItem";
+import teammembers from "./team-members.json";
 
 export const Editor : FC =()=> {
   const [title,setTitle] = useState<string>('');
@@ -41,11 +42,7 @@ export const Editor : FC =()=> {
               <div className="select">
                 <select value={assignee} onChange={handleAssigneeChange}>
                   <option value="">assign to</option>
-                  <option value="alax">alax</option>
-                  <option value="bob">bob</option>
-                  <option value="chris">chris</option>
-                  <option value="david">david</option>
-                  <option value="ed">ed</option>
+                  {teammembers.map(m=><option value={m} key={m}>{m}</option>)}
                 </select>
               </div>
             </div>
