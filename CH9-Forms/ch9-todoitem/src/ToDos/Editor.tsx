@@ -1,13 +1,13 @@
-import { FC, useRef } from "react";
+import { FC, useState } from "react";
 
 export const Editor : FC =()=> {
-  const titleRef = useRef<HTMLInputElement>(null); //新增一個參數來傳送title的內容
+  const [title,setTitle] = useState<string>('');
+  const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   return(
     <div className="box">
       <div className="field">
         <div className="control">
-          {/* 使用ref來綁定html物件與參數titleRef */}
-          <input ref={titleRef} type="text" className="input" placeholder="title" /> 
+          <input type="text" className="input" placeholder="title" value={title} onChange={handleTitleChange}/> 
         </div>
       </div>
       <div className="columns is-vcentered">
