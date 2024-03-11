@@ -8,7 +8,7 @@ export const Editor : FC =()=> {
 
   const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   const handlePriorityChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setPriority(parseInt(e.target.value));};
-  const handleAssigneeChange:React.ChangeEventHandler<HTMLSelectElement> = (e) => {console.log(e.target.value);};
+  const handleAssigneeChange:React.ChangeEventHandler<HTMLSelectElement> = (e) => {setAssignee(e.target.value);};
   
   return(
     <div className="box">
@@ -39,7 +39,7 @@ export const Editor : FC =()=> {
           <div className="field">
             <div className="control">
               <div className="select">
-                <select value="chris" onChange={handleAssigneeChange}>
+                <select value={assignee} onChange={handleAssigneeChange}>
                   <option value="">assign to</option>
                   <option value="alax">alax</option>
                   <option value="bob">bob</option>
