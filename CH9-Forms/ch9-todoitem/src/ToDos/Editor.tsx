@@ -6,10 +6,12 @@ export const Editor : FC =()=> {
   const [title,setTitle] = useState<string>('');
   const [priority,setPriority] = useState<Priority>(Priority.LOW);
   const [assignee,setAssignee] = useState<string>('');
+  const [content,setContent] = useState<string>('');
 
   const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   const handlePriorityChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setPriority(parseInt(e.target.value));};
   const handleAssigneeChange:React.ChangeEventHandler<HTMLSelectElement> = (e) => {setAssignee(e.target.value);};
+  const handlecontentChange:React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {setContent(e.target.value);};
   
   return(
     <div className="box">
@@ -51,7 +53,7 @@ export const Editor : FC =()=> {
       </div>
       <div className="field">
         <div className="control">
-          <textarea className="textarea" placeholder="content"/>
+          <textarea className="textarea" placeholder="content" value={content} onChange={handlecontentChange}/>
         </div>
       </div>
       <div className="columns">
