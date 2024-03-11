@@ -7,11 +7,13 @@ export const Editor : FC =()=> {
   const [priority,setPriority] = useState<Priority>(Priority.LOW);
   const [assignee,setAssignee] = useState<string>('');
   const [content,setContent] = useState<string>('');
+  const [resolved,setResolved] = useState<boolean>(false);
 
   const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   const handlePriorityChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setPriority(parseInt(e.target.value));};
   const handleAssigneeChange:React.ChangeEventHandler<HTMLSelectElement> = (e) => {setAssignee(e.target.value);};
   const handlecontentChange:React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {setContent(e.target.value);};
+  const handleResolvedChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setResolved(!resolved);};
   
   return(
     <div className="box">
@@ -60,7 +62,7 @@ export const Editor : FC =()=> {
         <div className="column">
           <div className="field">
             <div className="control">
-              <label className="checkbox"><input type="checkbox"/> Resolved </label>
+              <label className="checkbox"><input type="checkbox" checked={resolved} onChange={handleResolvedChange} /> Resolved </label>
             </div>
           </div>
         </div>
