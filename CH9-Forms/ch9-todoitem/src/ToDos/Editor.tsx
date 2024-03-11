@@ -54,7 +54,7 @@ export const Editor : FC =()=> {
           <div className="field is-grouped is-grouped-right">
             <div className="control">
               <div className="buttons has-addons">
-                <button className="button is-link" onClick={()=>console.log(titleRef)}> Save </button>
+                <button className="button is-link" onClick={()=>console.log(titleRef.current!.value)}> Save </button>
                 <button className="button is-link is-light"> Cancel </button>
               </div>
             </div>
