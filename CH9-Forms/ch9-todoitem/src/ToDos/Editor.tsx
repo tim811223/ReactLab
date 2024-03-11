@@ -7,7 +7,9 @@ export const Editor : FC =()=> {
     <div className="box">
       <div className="field">
         <div className="control">
-          <input type="text" className="input" placeholder="title" value={title} onChange={handleTitleChange}/> 
+          {/* <input type="text" className="input" placeholder="title" value={title} onChange={handleTitleChange}/>  */}
+          {/* 也可以省略上面的handleTitleChange (event function) 直接寫在html內 */}
+          <input type="text" className="input" placeholder="title" value={title} onChange={(e)=>setTitle(e.target.value)}/>    
         </div>
       </div>
       <div className="columns is-vcentered">
