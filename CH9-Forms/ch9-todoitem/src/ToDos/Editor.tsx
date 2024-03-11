@@ -39,7 +39,7 @@ export const Editor : FC =()=> {
           <div className="field">
             <div className="control">
               <div className="select">
-                <select onChange={handleAssigneeChange}>
+                <select value="chris" onChange={handleAssigneeChange}>
                   <option value="">assign to</option>
                   <option value="alax">alax</option>
                   <option value="bob">bob</option>
