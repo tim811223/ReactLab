@@ -1,11 +1,13 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 
 export const Editor : FC =()=> {
+  const titleRef = useRef<HTMLInputElement>(null); //新增一個參數來傳送title的內容
   return(
     <div className="box">
       <div className="field">
         <div className="control">
-          <input type="text" className="input" placeholder="title" />
+          {/* 使用ref來綁定html物件與參數titleRef */}
+          <input ref={titleRef} type="text" className="input" placeholder="title" /> 
         </div>
       </div>
       <div className="columns is-vcentered">
@@ -52,7 +54,7 @@ export const Editor : FC =()=> {
           <div className="field is-grouped is-grouped-right">
             <div className="control">
               <div className="buttons has-addons">
-                <button className="button is-link"> Save </button>
+                <button className="button is-link" onClick={()=>console.log(titleRef)}> Save </button>
                 <button className="button is-link is-light"> Cancel </button>
               </div>
             </div>
