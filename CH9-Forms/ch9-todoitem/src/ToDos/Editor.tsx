@@ -4,8 +4,12 @@ import { Priority } from "./ToDoItem";
 export const Editor : FC =()=> {
   const [title,setTitle] = useState<string>('');
   const [priority,setPriority] = useState<Priority>(Priority.LOW);
+  const [assignee,setAssignee] = useState<string>('');
+
   const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   const handlePriorityChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setPriority(parseInt(e.target.value));};
+  const handleAssigneeChange:React.ChangeEventHandler<HTMLSelectElement> = (e) => {console.log(e.target.value);};
+  
   return(
     <div className="box">
       <div className="field">
@@ -35,13 +39,13 @@ export const Editor : FC =()=> {
           <div className="field">
             <div className="control">
               <div className="select">
-                <select>
-                  <option>assign to</option>
-                  <option>alax</option>
-                  <option>bob</option>
-                  <option>chris</option>
-                  <option>david</option>
-                  <option>ed</option>
+                <select onChange={handleAssigneeChange}>
+                  <option value="">assign to</option>
+                  <option value="alax">alax</option>
+                  <option value="bob">bob</option>
+                  <option value="chris">chris</option>
+                  <option value="david">david</option>
+                  <option value="ed">ed</option>
                 </select>
               </div>
             </div>
