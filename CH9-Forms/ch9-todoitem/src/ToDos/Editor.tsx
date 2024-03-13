@@ -1,13 +1,13 @@
 import { FC, useState } from "react";
-import { Priority } from "./ToDoItem";
+import { Props, Priority } from "./ToDoItem";
 import teammembers from "./team-members.json";
 
-export const Editor : FC =()=> {
-  const [title,setTitle] = useState<string>('');
-  const [priority,setPriority] = useState<Priority>(Priority.LOW);
-  const [assignee,setAssignee] = useState<string>('');
-  const [content,setContent] = useState<string>('');
-  const [resolved,setResolved] = useState<boolean>(false);
+export const Editor : FC<Props> = props => { ///預設值改為由model帶入,model<Props>並把用props參數來接收傳入的預設內容
+  const [title,setTitle] = useState<string>(props.title);
+  const [priority,setPriority] = useState<Priority>(props.priority);
+  const [assignee,setAssignee] = useState<string>(props.assignee ?? '');
+  const [content,setContent] = useState<string>(props.content);
+  const [resolved,setResolved] = useState<boolean>(props.resolved);
 
   const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   const handlePriorityChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setPriority(parseInt(e.target.value));};

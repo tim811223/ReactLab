@@ -8,6 +8,7 @@ export interface Props{
   title:string;
   content:string;
   priority:Priority;
+  assignee?:string;
   resolved:boolean;
 }
 

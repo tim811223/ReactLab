@@ -3,9 +3,17 @@ import { useState } from 'react'
 import { Editor } from './ToDos/Editor'
 
 function App() {
+  ///設定預設值,傳入Editor component
+  const todo={
+    title:'title',
+    content:'content',
+    priority:0,
+    assignee:'chris',
+    resolved:false
+  };
   return (
     <>
-      <Editor/>
+      <Editor {...todo}/>
     </>
   )
 }
