@@ -6,6 +6,7 @@ import { ToDoItem } from './ToDos/ToDoItem';
 function App() {
   ///設定預設值,傳入Editor component
   const todo={
+    id:'7869-3352-970888965',
     title:'title',
     content:'content',
     priority:2,

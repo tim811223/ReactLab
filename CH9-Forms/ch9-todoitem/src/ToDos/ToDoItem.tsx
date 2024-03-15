@@ -9,6 +9,7 @@ export enum Priority{
 }
 
 export interface Props{
+  id:string;
   title:string;
   content:string;
   priority:Priority;
@@ -16,7 +17,7 @@ export interface Props{
   resolved:boolean;
 }
 
-export const ToDoItem:FC<Props> = ({title,content,priority,assignee,resolved}) =>{
+export const ToDoItem:FC<Props> = ({id,title,content,priority,assignee,resolved}) =>{
 const color = resolved ? '' : 
       priority === Priority.HIGH ? 'is-danger' :
       priority === Priority.MEDIUM ? 'is-warning' :
@@ -35,13 +36,18 @@ const color = resolved ? '' :
             <div>
               {content}
             </div>
-            <div className="has-text-right">
-              {
-                assignee!==undefined 
-                ? <span className="has-text-grey-light is-size-7">{`assignee to @${assignee}`}</span>
-                : null
-              }
-            </div>
+            <div className="columns is-mobile">
+              <div className="column">
+                <span className="has-text-grey-light is-size-7">{id}</span>
+              </div>
+              <div className="column has-text-right">
+                {
+                  assignee!==undefined 
+                  ? <span className="has-text-grey-light is-size-7">{`assignee to @${assignee}`}</span>
+                  : null
+                }
+              </div>
+              </div>
           </div>
         </article>
       );
