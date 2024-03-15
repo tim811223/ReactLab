@@ -27,7 +27,7 @@ const color = resolved ? '' :
           <div className="message-header">
             <p>{title}</p>
             <span>
-              <FontAwesomeIcon  icon={faList}/>
+              <FontAwesomeIcon  icon={faList} className="is-clickable"/>
               <button className="delete" aria-label="delete"></button>
             </span>
           </div>
