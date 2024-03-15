@@ -26,11 +26,12 @@ const color = resolved ? '' :
       priority === Priority.LOW ? 'is-info':'is-primary';
       
       const handleEditClick = () => serEditing(true);
+      const handleCancelClick = () => serEditing(false);
 
       return(
         // 如果editing為true,則顯示Editor component,否則顯示article(這component自己的內容)
         editing 
-        ? <Editor {...{id,title,content,priority,assignee,resolved}}/>
+        ? <Editor {...{id,title,content,priority,assignee,resolved}} onCancle={handleCancelClick}/>
         : <article className={`message ${color}`}>
           <div className="message-header">
             <p>{title}</p>

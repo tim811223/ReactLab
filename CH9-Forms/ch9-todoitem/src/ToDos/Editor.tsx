@@ -1,6 +1,11 @@
 import { FC, useState } from "react";
-import { Props, Priority } from "./ToDoItem";
+import { Props as ToDoItemProps, Priority } from "./ToDoItem";
 import teammembers from "./team-members.json";
+
+//這表示Props的內容在ToDoItemProps內都有,並且可以再加上其他的內容
+interface Props extends ToDoItemProps{
+  onCancle:()=>void;
+}
 
 export const Editor : FC<Props> = props => { ///預設值改為由model帶入,model<Props>並把用props參數來接收傳入的預設內容
   const [title,setTitle] = useState<string>(props.title);
@@ -71,7 +76,7 @@ export const Editor : FC<Props> = props => { ///預設值改為由model帶入,mo
             <div className="control">
               <div className="buttons has-addons">
                 <button className="button is-link" onClick={()=>console.log(title)}> Save </button>
-                <button className="button is-link is-light"> Cancel </button>
+                <button className="button is-link is-light" onClick={props.onCancle}> Cancel </button>
               </div>
             </div>
           </div>
