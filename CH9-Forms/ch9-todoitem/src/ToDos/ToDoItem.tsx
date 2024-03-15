@@ -1,3 +1,5 @@
+import { faList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC } from "react";
 
 export enum Priority{
@@ -24,7 +26,10 @@ const color = resolved ? '' :
         <article className={`message ${color}`}>
           <div className="message-header">
             <p>{title}</p>
-            <button className="delete" aria-label="delete"></button>
+            <span>
+              <FontAwesomeIcon  icon={faList}/>
+              <button className="delete" aria-label="delete"></button>
+            </span>
           </div>
           <div className="message-body">
             {content}
