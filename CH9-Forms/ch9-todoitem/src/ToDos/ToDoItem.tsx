@@ -1,4 +1,4 @@
-import { faList } from "@fortawesome/free-solid-svg-icons";
+import { faList, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC } from "react";
 
@@ -16,7 +16,7 @@ export interface Props{
   resolved:boolean;
 }
 
-export const ToDoItem:FC<Props> = ({title,content,priority,resolved}) =>{
+export const ToDoItem:FC<Props> = ({title,content,priority,assignee,resolved}) =>{
 const color = resolved ? '' : 
       priority === Priority.HIGH ? 'is-danger' :
       priority === Priority.MEDIUM ? 'is-warning' :
@@ -27,12 +27,21 @@ const color = resolved ? '' :
           <div className="message-header">
             <p>{title}</p>
             <span>
-              <FontAwesomeIcon  icon={faList} className="is-clickable"/>
-              <button className="delete" aria-label="delete"></button>
+              <FontAwesomeIcon  icon={faList} className="is-clickable mr-l"/>
+              <FontAwesomeIcon  icon={faTrashCan} className="is-clickable"/>
             </span>
           </div>
           <div className="message-body">
-            {content}
+            <div>
+              {content}
+            </div>
+            <div className="has-text-right">
+              {
+                assignee!==undefined 
+                ? <span className="has-text-grey-light is-size-7">{`assignee to @${assignee}`}</span>
+                : null
+              }
+            </div>
           </div>
         </article>
       );
