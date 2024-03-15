@@ -1,6 +1,7 @@
 import { faList, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FC } from "react";
+import { FC, useState } from "react";
+import { Editor } from "./Editor";
 
 export enum Priority{
   HIGH,
@@ -18,17 +19,23 @@ export interface Props{
 }
 
 export const ToDoItem:FC<Props> = ({id,title,content,priority,assignee,resolved}) =>{
+const [editing,serEditing] = useState<boolean>(false);
 const color = resolved ? '' : 
       priority === Priority.HIGH ? 'is-danger' :
       priority === Priority.MEDIUM ? 'is-warning' :
       priority === Priority.LOW ? 'is-info':'is-primary';
+      
+      const handleEditClick = () => serEditing(true);
 
       return(
-        <article className={`message ${color}`}>
+        // 如果editing為true,則顯示Editor component,否則顯示article(這component自己的內容)
+        editing 
+        ? <Editor {...{id,title,content,priority,assignee,resolved}}/>
+        : <article className={`message ${color}`}>
           <div className="message-header">
             <p>{title}</p>
             <span>
-              <FontAwesomeIcon  icon={faList} className="is-clickable mr-l"/>
+              <FontAwesomeIcon  icon={faList} className="is-clickable mr-l" onClick={handleEditClick}/>
               <FontAwesomeIcon  icon={faTrashCan} className="is-clickable"/>
             </span>
           </div>
