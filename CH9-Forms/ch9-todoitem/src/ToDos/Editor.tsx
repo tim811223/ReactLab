@@ -19,6 +19,10 @@ export const Editor : FC<Props> = props => { ///預設值改為由model帶入,mo
   const handleAssigneeChange:React.ChangeEventHandler<HTMLSelectElement> = (e) => {setAssignee(e.target.value);};
   const handlecontentChange:React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {setContent(e.target.value);};
   const handleResolvedChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setResolved(!resolved);};
+  const handleSaveClick =() =>{
+    props.updateTodo(props.id,{title,priority,assignee,content,resolved});
+    props.onCancle();
+  };
   
   return(
     <div className="box">
@@ -75,7 +79,7 @@ export const Editor : FC<Props> = props => { ///預設值改為由model帶入,mo
           <div className="field is-grouped is-grouped-right">
             <div className="control">
               <div className="buttons has-addons">
-                <button className="button is-link" onClick={()=>console.log(title)}> Save </button>
+                <button className="button is-link" onClick={handleSaveClick}> Save </button>
                 <button className="button is-link is-light" onClick={props.onCancle}> Cancel </button>
               </div>
             </div>
