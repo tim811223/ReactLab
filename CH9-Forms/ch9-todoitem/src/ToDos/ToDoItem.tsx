@@ -46,7 +46,7 @@ const color = resolved ? '' :
             </div>
             <div className="columns is-mobile">
               <div className="column">
-                <span className="has-text-grey-light is-size-7">{id}</span>
+                <span className="has-text-grey-light is-size-7 is-8">{id}</span>
               </div>
               <div className="column has-text-right">
                 {

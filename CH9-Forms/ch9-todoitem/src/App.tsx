@@ -2,6 +2,7 @@ import 'bulma/css/bulma-rtl.min.css';
 import { useState } from 'react'
 import { Editor } from './ToDos/Editor'
 import { ToDoItem } from './ToDos/ToDoItem';
+import { TodoList } from './ToDos/ToDoList';
 
 function App() {
   ///設定預設值,傳入Editor component
@@ -16,7 +17,8 @@ function App() {
   return (
     <>
       {/* <Editor {...todo}/> */}
-      <ToDoItem {...todo}/>
+      {/* <ToDoItem {...todo}/> */}
+      <TodoList/>
     </>
   )
 }
