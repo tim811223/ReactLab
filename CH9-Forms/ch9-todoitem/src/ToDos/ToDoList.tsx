@@ -10,12 +10,15 @@ export const TodoList:FC=()=>{
     setTodos(todos.map(i =>i.id === id ? {...i,...update}:i))
 
   };
+  const deleteTodo = (id:string)=>{
+    setTodos(todos.filter(i=>i.id !== id));
+  };
 
     return (
       <div className="column is-multiline">
         {todos.map(i => 
           <div className="column is-2" key={i.id}>
-            <ToDoItem {...i} updateTodo={updateTodo}/>
+            <ToDoItem {...i} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
           </div>)}
       </div>
     );

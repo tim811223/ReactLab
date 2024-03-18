@@ -18,9 +18,10 @@ export interface Props{
   assignee?:string;
   resolved:boolean;
   updateTodo:(id:string,update:Partial<TodoItemModel>) => void;
+  deleteTodo:(id:string) => void;
 }
 
-export const ToDoItem:FC<Props> = ({id,title,content,priority,assignee,resolved,updateTodo}) =>{
+export const ToDoItem:FC<Props> = ({id,title,content,priority,assignee,resolved,updateTodo,deleteTodo}) =>{
 const [editing,serEditing] = useState<boolean>(false);
 const color = resolved ? '' : 
       priority === Priority.HIGH ? 'is-danger' :
@@ -29,17 +30,18 @@ const color = resolved ? '' :
       
       const handleEditClick = () => serEditing(true);
       const handleCancelClick = () => serEditing(false);
+      const deleteTodos = () => deleteTodo(id);
 
       return(
         // 如果editing為true,則顯示Editor component,否則顯示article(這component自己的內容)
         editing 
-        ? <Editor {...{id,title,content,priority,assignee,updateTodo,resolved}} onCancle={handleCancelClick}/>
+        ? <Editor {...{id,title,content,priority,assignee,resolved,updateTodo,deleteTodo}} onCancle={handleCancelClick}/>
         : <article className={`message ${color}`}>
           <div className="message-header">
             <p>{title}</p>
             <span>
               <FontAwesomeIcon  icon={faList} className="is-clickable mr-l" onClick={handleEditClick}/>
-              <FontAwesomeIcon  icon={faTrashCan} className="is-clickable"/>
+              <FontAwesomeIcon  icon={faTrashCan} className="is-clickable" onClick={deleteTodos}/>
             </span>
           </div>
           <div className="message-body">
