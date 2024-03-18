@@ -1,7 +1,7 @@
-import { faList, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faL, faList, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC, useState } from "react";
-import { Editor } from "./Editor";
+import { Editor,TodoItemModel as EditorItemModel } from "./Editor";
 import { TodoItemModel } from "./utils/getTodoItems";
 
 export enum Priority{
@@ -29,13 +29,14 @@ const color = resolved ? '' :
       priority === Priority.LOW ? 'is-info':'is-primary';
       
       const handleEditClick = () => serEditing(true);
+      const handleSaveClick = (todo:EditorItemModel) => {updateTodo(id,todo);serEditing(false);};
       const handleCancelClick = () => serEditing(false);
       const deleteTodos = () => deleteTodo(id);
 
       return(
         // 如果editing為true,則顯示Editor component,否則顯示article(這component自己的內容)
         editing 
-        ? <Editor {...{id,title,content,priority,assignee,resolved,updateTodo,deleteTodo}} onCancle={handleCancelClick}/>
+        ? <Editor {...{todo:{title,content,priority,assignee,resolved}}} onSave={handleSaveClick} onCancle={handleCancelClick}/>
         : <article className={`message ${color}`}>
           <div className="message-header">
             <p>{title}</p>

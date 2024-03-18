@@ -1,18 +1,28 @@
 import { FC, useState } from "react";
-import { Props as ToDoItemProps, Priority } from "./ToDoItem";
+import { Priority } from "./ToDoItem";
 import teammembers from "./team-members.json";
 
+export interface TodoItemModel{
+  title:string;
+  content:string;
+  priority:Priority;
+  assignee?:string;
+  resolved:boolean;
+}
+
 //這表示Props的內容在ToDoItemProps內都有,並且可以再加上其他的內容
-interface Props extends ToDoItemProps{
+interface Props{
+  todo?:TodoItemModel;
+  onSave:(todo:TodoItemModel) => void;
   onCancle:()=>void;
 }
 
 export const Editor : FC<Props> = props => { ///預設值改為由model帶入,model<Props>並把用props參數來接收傳入的預設內容
-  const [title,setTitle] = useState<string>(props.title);
-  const [priority,setPriority] = useState<Priority>(props.priority);
-  const [assignee,setAssignee] = useState<string>(props.assignee ?? '');
-  const [content,setContent] = useState<string>(props.content);
-  const [resolved,setResolved] = useState<boolean>(props.resolved);
+  const [title,setTitle] = useState<string>(props.todo?.title??"");
+  const [priority,setPriority] = useState<Priority>(props.todo?.priority??Priority.LOW);
+  const [assignee,setAssignee] = useState<string>(props.todo?.assignee ?? '');
+  const [content,setContent] = useState<string>(props.todo?.content??"");
+  const [resolved,setResolved] = useState<boolean>(props.todo?.resolved??false);
 
   const handleTitleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setTitle(e.target.value);};
   const handlePriorityChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setPriority(parseInt(e.target.value));};
@@ -20,8 +30,7 @@ export const Editor : FC<Props> = props => { ///預設值改為由model帶入,mo
   const handlecontentChange:React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {setContent(e.target.value);};
   const handleResolvedChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {setResolved(!resolved);};
   const handleSaveClick =() =>{
-    props.updateTodo(props.id,{title,priority,assignee,content,resolved});
-    props.onCancle();
+    props.onSave({title,priority,assignee,content,resolved});
   };
   
   return(
